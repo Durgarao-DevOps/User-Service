@@ -27,6 +27,7 @@ jobs:
           run: echo "deploy completed"
   
   create_file:
+    needs: deploy
     runs-on: ubuntu-latest
     steps:
        - name: file creation
