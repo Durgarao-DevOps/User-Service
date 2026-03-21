@@ -46,7 +46,6 @@ jobs:
           name: my-artifact
       - name: List all files
         run: ls -l
-		  
   read_file:
     needs: list_files
     runs-on: ubuntu-latest
