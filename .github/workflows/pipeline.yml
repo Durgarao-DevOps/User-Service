@@ -3,7 +3,7 @@ on:
   push: 
     branches:
       - main
-      - development
+      #- development
   workflow_dispatch:
 jobs:
   build:
@@ -59,11 +59,18 @@ jobs:
           name: my-artifact
       - name: read files
         run: cat myfile.txt
-  
   deploy-only:
     if: github.ref == 'refs/heads/main'
     needs: read_file
-    runs-on: ubuntu-server
+    runs-on: ubuntu-latest
     steps:
       - name: deploy-to-prod
         run: echo "Deploy to prod only"
+  example:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print info
+        run: |
+          echo "Repo: ${{ github.repository }}"
+          echo "Actor: ${{ github.actor }}"
+          echo "OS: ${{ runner.os }}"
