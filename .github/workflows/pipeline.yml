@@ -62,7 +62,11 @@ jobs:
   deploy-only:
     if: github.ref == 'refs/heads/main'
     needs: read_file
+<<<<<<< HEAD
     runs-on: ubuntu-latest
+=======
+    runs-on: ubuntu-server
+>>>>>>> 26aa8afc46e5575283e404306c5c9908bcc5ab1e
     steps:
       - name: deploy-to-prod
         run: echo "Deploy to prod only"
