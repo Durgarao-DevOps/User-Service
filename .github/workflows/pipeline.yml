@@ -58,3 +58,11 @@ jobs:
           name: my-artifact
       - name: read files
         run: cat myfile.txt
+  
+  deploy-only:
+    if: github.ref == 'refs/heads/main'
+    needs: read_file
+    runs-on: ubuntu-server
+    steps:
+      - name: deploy-to-prod
+        run: echo "Deploy to prod only"
